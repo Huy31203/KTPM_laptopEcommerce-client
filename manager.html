@@ -1,0 +1,3362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/x-icon" href="/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brand | Dashboard Manager</title>
+    <!-- Bootstrap CSS -->
+    <link href="css/vendor/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Date Range Picker -->
+    <link rel="stylesheet" type="text/css" href="css/vendor/daterangepicker.css" />
+
+    <!-- Apexcharts CSS -->
+    <link rel="stylesheet" href="css/vendor/apexcharts.min.css" />
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/10c30652a2.js" crossorigin="anonymous"></script>
+
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="/css/pages/manager.css" />
+  </head>
+
+  <body>
+    <header class="admin-header_container">
+      <div class="admin-header">
+        <div class="admin-header_left">
+          <a class="logo" href="/">
+            <span>
+              <svg
+                width="44"
+                height="44"
+                viewBox="0 0 44 44"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g opacity="0.8">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M14.4674 1.91309H37.1848C40.9487 1.91309 44 5.28555 44 9.44569V34.5544C44 38.7145 40.9487 42.087 37.1848 42.087H14.4674C10.7034 42.087 7.65216 38.7145 7.65216 34.5544L7.65216 9.44569C7.65216 5.28555 10.7034 1.91309 14.4674 1.91309Z"
+                    fill="#0D6EFD"
+                    fill-opacity="0.2"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8.13044 1.91309H32.0435C36.0055 1.91309 39.2174 5.28555 39.2174 9.44569V34.5544C39.2174 38.7145 36.0055 42.087 32.0435 42.087H8.13044C4.1684 42.087 0.956527 38.7145 0.956528 34.5544L0.956528 9.44569C0.956527 5.28555 4.1684 1.91309 8.13044 1.91309Z"
+                    fill="#0D6EFD"
+                  />
+                  <g opacity="0.7">
+                    <path
+                      opacity="0.3"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M15.2902 18.3562H14.3097C14.2591 18.3562 14.1842 18.4265 14.1813 18.473L13.4589 30.1476L26.9548 30.1451L26.2253 18.473C26.2225 18.4283 26.1457 18.3562 26.0969 18.3562H25.1164V20.3214C25.1164 20.8641 24.6765 21.3041 24.1338 21.3041C23.5911 21.3041 23.1512 20.8641 23.1512 20.3214V18.3562H17.2554V20.3214C17.2554 20.8641 16.8155 21.3041 16.2728 21.3041C15.7301 21.3041 15.2902 20.8641 15.2902 20.3214V18.3562Z"
+                      fill="white"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M20.2033 11.4783C22.9153 11.4783 25.1164 13.6796 25.1164 16.3891L26.0969 16.3914C27.1835 16.3914 28.1192 17.2704 28.1867 18.3508L28.9244 30.1539C28.9921 31.2361 28.1698 32.1133 27.0865 32.1133H13.3201C12.2374 32.1133 11.4146 31.2344 11.4821 30.1539L12.2198 18.3508C12.2875 17.2686 13.2213 16.3914 14.3096 16.3914H15.2902C15.2902 13.6781 17.493 11.4783 20.2033 11.4783ZM23.1511 16.3915C23.1511 14.765 21.8299 13.4436 20.2033 13.4436C18.5778 13.4436 17.2554 14.7642 17.2554 16.3892L23.1511 16.3915ZM15.2902 18.3566H14.3096C14.2591 18.3566 14.1842 18.4269 14.1813 18.4733L13.4589 30.148L26.9548 30.1455L26.2253 18.4733C26.2225 18.4286 26.1457 18.3566 26.0969 18.3566H25.1164V20.3218C25.1164 20.8645 24.6765 21.3044 24.1338 21.3044C23.5911 21.3044 23.1512 20.8645 23.1512 20.3218V18.3566H17.2554V20.3218C17.2554 20.8645 16.8155 21.3044 16.2728 21.3044C15.7301 21.3044 15.2902 20.8645 15.2902 20.3218V18.3566Z"
+                      fill="white"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </span>
+          </a>
+          <span class="admin-category">
+            <i class="fa-sharp fa-solid fa-bars-staggered"></i>
+          </span>
+        </div>
+        <div class="action">
+          <a class="action-link logout" href="/manager.html">
+            <span class="action-icon">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M3 3C2.73478 3 2.48043 3.10536 2.29289 3.29289C2.10536 3.48043 2 3.73478 2 4V16C2 16.2652 2.10536 16.5196 2.29289 16.7071C2.48043 16.8946 2.73478 17 3 17C3.26522 17 3.51957 16.8946 3.70711 16.7071C3.89464 16.5196 4 16.2652 4 16V4C4 3.73478 3.89464 3.48043 3.70711 3.29289C3.51957 3.10536 3.26522 3 3 3ZM13.293 12.293C13.1108 12.4816 13.01 12.7342 13.0123 12.9964C13.0146 13.2586 13.1198 13.5094 13.3052 13.6948C13.4906 13.8802 13.7414 13.9854 14.0036 13.9877C14.2658 13.99 14.5184 13.8892 14.707 13.707L17.707 10.707C17.8945 10.5195 17.9998 10.2652 17.9998 10C17.9998 9.73484 17.8945 9.48053 17.707 9.293L14.707 6.293C14.6148 6.19749 14.5044 6.12131 14.3824 6.0689C14.2604 6.01649 14.1292 5.9889 13.9964 5.98775C13.8636 5.9866 13.7319 6.0119 13.609 6.06218C13.4861 6.11246 13.3745 6.18671 13.2806 6.2806C13.1867 6.3745 13.1125 6.48615 13.0622 6.60905C13.0119 6.73194 12.9866 6.86362 12.9877 6.9964C12.9889 7.12918 13.0165 7.2604 13.0689 7.3824C13.1213 7.50441 13.1975 7.61475 13.293 7.707L14.586 9H7C6.73478 9 6.48043 9.10536 6.29289 9.29289C6.10536 9.48043 6 9.73478 6 10C6 10.2652 6.10536 10.5196 6.29289 10.7071C6.48043 10.8946 6.73478 11 7 11H14.586L13.293 12.293Z"
+                  fill="#8B96A5"
+                />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <section class="admin-body">
+      <div class="sidebar">
+        <div class="sidebar-item" data-value="overview">
+          <i class="fa-sharp fa-solid fa-chart-pie"></i>
+          <span>Thống kê</span>
+        </div>
+        <div class="sidebar-item" data-value="sell-order">
+          <i class="fa-solid fa-receipt"></i>
+          <span>Đơn hàng</span>
+        </div>
+        <div class="sidebar-item" data-value="import-order">
+          <i class="fa-sharp fa-solid fa-receipt"></i>
+          <span>Phiếu nhập</span>
+        </div>
+        <div class="sidebar-item" data-value="import-product">
+          <i class="fa-solid fa-cart-arrow-down"></i>
+          <span>Nhập hàng</span>
+        </div>
+        <div class="sidebar-item" data-value="supplier">
+          <i class="fa-solid fa-parachute-box"></i>
+          <span>Nhà cung cấp</span>
+        </div>
+        <div class="sidebar-item" data-value="product">
+          <i class="fa-solid fa-box-open"></i>
+          <span>Sản phẩm</span>
+        </div>
+        <div class="sidebar-item" data-value="brand">
+          <i class="fa-solid fa-list-ul"></i>
+          <span>Thương hiệu</span>
+        </div>
+        <div class="sidebar-item" data-value="customer">
+          <i class="fa-solid fa-user"></i>
+          <span>Khách hàng</span>
+        </div>
+        <div class="sidebar-item" data-value="employee">
+          <i class="fa-solid fa-user-tie"></i>
+          <span>Nhân viên</span>
+        </div>
+        <div class="sidebar-item" data-value="account">
+          <i class="fa-regular fa-circle-user"></i>
+          <span>Tài khoản</span>
+        </div>
+        <div class="sidebar-item" data-value="auth-group">
+          <i class="fa-solid fa-users"></i>
+          <span>Nhóm quyền</span>
+        </div>
+        <div class="sidebar-item" data-value="decentralization">
+          <i class="fa-solid fa-users-gear"></i>
+          <span>Phân quyền</span>
+        </div>
+        <div class="sidebar-item" data-value="guarantee">
+          <i class="fa-solid fa-user-shield"></i>
+          <span>Bảo hành</span>
+        </div>
+      </div>
+
+      <div class="overlay"></div>
+
+      <div class="admin-content_container">
+        <div class="admin-content p-2"></div>
+      </div>
+    </section>
+    <!-- MODAL -->
+
+    <div
+      class="modal fade"
+      id="statusModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Thay đổi trạng thái đơn hàng</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-status">
+              <span class="sell-order-status wait" data-value="chờ xử lý">Chờ xử lý</span>
+              <span class="sell-order-status shipping" data-value="đang giao hàng">
+                Đang giao hàng
+              </span>
+              <span class="sell-order-status completed" data-value="hoàn thành">Hoàn thành</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="deleteBrandModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xóa không?</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-yes">Có</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="deleteProductModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xóa không?</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-yes">Có</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="viewmoreSellOrderModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Xem chi tiết</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="fullname" class="label fw-bold">Họ và tên</label>
+                <div class="input">
+                  <input id="fullname" type="text" placeholder="họ và tên..." disabled />
+                </div>
+              </div>
+              <div class="input_container">
+                <label for="phone" class="label fw-bold">Số điện thoại</label>
+                <div class="input">
+                  <input id="phone" type="text" placeholder="số điện thoại..." disabled />
+                </div>
+              </div>
+              <div class="input_container">
+                <label for="address" class="label fw-bold">Địa chỉ</label>
+                <div class="input">
+                  <input id="address" type="text" placeholder="địa chỉ..." disabled />
+                </div>
+              </div>
+              <div class="input_container">
+                <label for="employee" class="label fw-bold">Mã nhân viên</label>
+                <div class="input">
+                  <input id="employee" type="text" placeholder="Chưa có..." disabled />
+                </div>
+              </div>
+              <div class="select_container">
+                <label for="pay-method" class="label fw-bold">Phương thức thanh toán</label>
+                <div class="select">
+                  <select name="pay-method" id="pay-method" disabled>
+                    <option value="postpaid">Trả sau khi nhận hàng</option>
+                    <option value="prepaid">Trả trước khi nhận hàng</option>
+                  </select>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="order-info_container">
+                <div class="order-time fw-bold">Ngày đặt hàng: <span>03/02/2023</span></div>
+                <div class="order-status fw-bold">
+                  Trạng thái: <span class="waiting">chờ xử lý</span>
+                </div>
+              </div>
+              <div class="ordered-product">
+                <label class="label fw-bold">Các sản phẩm đã đặt</label>
+                <div class="product-list"></div>
+              </div>
+              <div class="order-total-price fw-bold">Tổng tiền: <span>1.000.000 VNĐ</span></div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="viewmoreImportOrderModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Xem chi tiết</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="employee-import-order" class="label fw-bold">Mã nhân viên</label>
+                <div class="input">
+                  <input
+                    id="employee-import-order"
+                    type="text"
+                    placeholder="Nhân viên..."
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="supplier-import-order" class="label fw-bold">Mã nhà cung cấp</label>
+                <div class="input">
+                  <input
+                    id="supplier-import-order"
+                    type="text"
+                    placeholder="nhà cung cấp..."
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="percent-profit-import-order" class="label fw-bold"
+                  >Tỉ lệ lợi nhuận</label
+                >
+                <div class="input">
+                  <input
+                    id="percent-profit-import-order"
+                    type="text"
+                    placeholder="Tỉ lệ lợi nhuận..."
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="order-time fw-bold">Ngày lập: <span>03/02/2023</span></div>
+              <div class="ordered-product">
+                <label class="label fw-bold">Các sản phẩm đã nhập</label>
+                <div class="product-list"></div>
+              </div>
+              <div class="order-total-price fw-bold">Tổng tiền: <span></span></div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="deleteImportOrderModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xóa không?</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-yes">Có</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="updateBrandModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa thông tin thương hiệu</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="update_brandName" class="label fw-bold">Tên thương hiệu</label>
+                <div class="input">
+                  <input id="update_brandName" type="text" placeholder="Tên thương hiệu..." />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label class="label fw-bold">Icon</label>
+                <div class="image-input image-icon">
+                  <label class="label fw-bold" for="update_icon">
+                    <img src="/img.webp" alt="" />
+                    <span class="icon-remove">
+                      <i class="fa-solid fa-trash"></i>
+                    </span>
+                  </label>
+                  <input
+                    id="update_icon"
+                    type="file"
+                    placeholder="Hình ảnh..."
+                    hidden
+                    accept="image/*"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label class="label fw-bold">Hình ảnh</label>
+                <div class="image-input image-background">
+                  <label class="label fw-bold" for="update_brandImage">
+                    <img src="/img.webp" alt="" />
+                    <span class="icon-remove">
+                      <i class="fa-solid fa-trash"></i>
+                    </span>
+                  </label>
+                  <input
+                    id="update_brandImage"
+                    type="file"
+                    placeholder="Hình ảnh..."
+                    hidden
+                    accept="image/*"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-update">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="createBrandModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Thêm thương hiệu</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="create_brandName" class="label fw-bold">Tên thương hiệu</label>
+                <div class="input">
+                  <input
+                    id="create_brandName"
+                    type="text"
+                    placeholder="Tên thương hiệu..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label class="label fw-bold">Icon</label>
+                <div class="image-input image-icon">
+                  <label class="label fw-bold" for="create_icon">
+                    <img src="/img.webp" alt="" />
+                    <span class="icon-remove">
+                      <i class="fa-solid fa-trash"></i>
+                    </span>
+                  </label>
+                  <input
+                    id="create_icon"
+                    type="file"
+                    placeholder="Hình ảnh..."
+                    hidden
+                    rules="required"
+                    accept="image/*"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label class="label fw-bold">Hình ảnh</label>
+                <div class="image-input image-background">
+                  <label class="label fw-bold" for="create_brandImage">
+                    <img src="/img.webp" alt="" />
+                    <span class="icon-remove">
+                      <i class="fa-solid fa-trash"></i>
+                    </span>
+                  </label>
+                  <input
+                    id="create_brandImage"
+                    type="file"
+                    placeholder="Hình ảnh..."
+                    hidden
+                    rules="required"
+                    accept="image/*"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+            <button type="button" class="btn btn-primary btn-create">Thêm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="viewAndUpdateProductModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Xem và sửa</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="product-name-update" class="label fw-bold">Tên sản phẩm</label>
+                <div class="input">
+                  <input
+                    id="product-name-update"
+                    type="text"
+                    placeholder="tên sản phẩm..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-guarantee-update" class="label fw-bold">Bảo hành</label>
+                  <div class="input">
+                    <input
+                      id="product-guarantee-update"
+                      type="number"
+                      placeholder="bảo hành..."
+                      rules="required|positive"
+                    />
+                    Tháng
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-port-update" class="label fw-bold"
+                    >Số cổng lưu trữ tối đa</label
+                  >
+                  <div class="input">
+                    <input
+                      id="product-port-update"
+                      type="text"
+                      placeholder="Số cổng lưu trữ tối đa..."
+                      rules="required|positive"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-price-update" class="label fw-bold">Giá bán</label>
+                  <div class="input">
+                    <input
+                      id="product-price-update"
+                      type="number"
+                      placeholder="giá bán..."
+                      rules="required|positive"
+                    />
+                    VND
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-sale-update" class="label fw-bold">Giảm giá</label>
+                  <div class="input">
+                    <input
+                      id="product-sale-update"
+                      type="number"
+                      placeholder="giảm giá..."
+                      rules="positiveEqualZero"
+                    />
+                    %
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-cpu-gen-update" class="label fw-bold">Thế hệ CPU</label>
+                  <div class="input">
+                    <input
+                      id="product-cpu-gen-update"
+                      type="text"
+                      placeholder="thế hệ cpu..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-cpu-update" class="label fw-bold">CPU</label>
+                  <div class="input">
+                    <input
+                      id="product-cpu-update"
+                      type="text"
+                      placeholder="cpu..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-cpu-series-update" class="label fw-bold">Series CPU</label>
+                  <div class="input">
+                    <input
+                      id="product-cpu-series-update"
+                      type="text"
+                      placeholder="series cpu..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="input_container">
+                <label for="product-chip-update" class="label fw-bold">Chip đồ họa rời</label>
+                <div class="input">
+                  <input
+                    id="product-chip-update"
+                    type="text"
+                    placeholder="chip đồ họa rời..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-save-update" class="label fw-bold">Lưu trữ</label>
+                <div class="input">
+                  <input
+                    id="product-save-update"
+                    type="text"
+                    placeholder="Lưu trữ..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-screen-update" class="label fw-bold">Màn hình</label>
+                <div class="input">
+                  <input
+                    id="product-screen-update"
+                    type="text"
+                    placeholder="screen..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-ram-name-update" class="label fw-bold">Tên RAM</label>
+                  <div class="input">
+                    <input
+                      id="product-ram-name-update"
+                      type="text"
+                      placeholder="tên ram..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-ram-size-update" class="label fw-bold">Dung lượng RAM</label>
+                  <div class="input">
+                    <input
+                      id="product-ram-size-update"
+                      type="number"
+                      placeholder="dung lượng ram..."
+                      rules="required|positive"
+                    />
+                    GB
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="input_container">
+                <label for="product-slot-update" class="label fw-bold">Kiểu khe hỗ trợ</label>
+                <div class="input">
+                  <input
+                    id="product-slot-update"
+                    type="text"
+                    placeholder="Kiểu khe hỗ trợ..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-screen-port-update" class="label fw-bold">Cổng xuất hình</label>
+                <div class="input">
+                  <input
+                    id="product-screen-port-update"
+                    type="text"
+                    placeholder="Cổng xuất hình..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-connect-port-update" class="label fw-bold">Cổng kết nối</label>
+                <div class="input">
+                  <input
+                    id="product-connect-port-update"
+                    type="text"
+                    placeholder="Cổng kết nối..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-wireless-update" class="label fw-bold">Kết nối không dây</label>
+                <div class="input">
+                  <input
+                    id="product-wireless-update"
+                    type="text"
+                    placeholder="Kết nối không dây..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-keyboard-update" class="label fw-bold">Bàn phím</label>
+                <div class="input">
+                  <input
+                    id="product-keyboard-update"
+                    type="text"
+                    placeholder="Bàn phím..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-os-update" class="label fw-bold">Hệ điều hành</label>
+                <div class="input">
+                  <input
+                    id="product-os-update"
+                    type="text"
+                    placeholder="Hệ điều hành..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="d-flex justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-size-update" class="label fw-bold">Kích thước</label>
+                  <div class="input">
+                    <input
+                      id="product-size-update"
+                      type="text"
+                      placeholder="Kích thước..."
+                      rules="required"
+                    />
+                    cm
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-pin-update" class="label fw-bold">Pin</label>
+                  <div class="input">
+                    <input
+                      id="product-pin-update"
+                      type="text"
+                      placeholder="Pin..."
+                      rules="required"
+                    />
+                    Wh
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-weight-update" class="label fw-bold">Khối lượng</label>
+                  <div class="input">
+                    <input
+                      id="product-weight-update"
+                      type="number"
+                      placeholder="Khối lượng..."
+                      rules="required|positive"
+                    />
+                    kg
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-series-laptop-update" class="label fw-bold">
+                    Series laptop
+                  </label>
+                  <div class="input">
+                    <input
+                      id="product-series-laptop-update"
+                      type="text"
+                      placeholder="Series laptop..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-part-num-update" class="label fw-bold">part-number</label>
+                  <div class="input">
+                    <input
+                      id="product-part-num-update"
+                      type="text"
+                      placeholder="part-number..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="input_container">
+                <label for="product-color-update" class="label fw-bold">Màu sắc</label>
+                <div class="input">
+                  <input
+                    id="product-color-update"
+                    type="text"
+                    placeholder="Màu sắc..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="d-flex justify-content-between gap-3 mb-3">
+                <div class="d-flex flex-column align-items-center gap-2">
+                  <label for="product-led-update" class="label fw-bold">Đèn led</label>
+                  <div class="checkbox-container">
+                    <input type="checkbox" class="checkbox-input" id="product-led-update" />
+                    <div class="checkbox-inner"><i class="fa-solid fa-check"></i></div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column align-items-center gap-2">
+                  <label for="product-touch-screen-update" class="label fw-bold"
+                    >Màn hình cảm ứng</label
+                  >
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      class="checkbox-input"
+                      id="product-touch-screen-update"
+                    />
+                    <div class="checkbox-inner"><i class="fa-solid fa-check"></i></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input_container">
+                <label for="product-gear-update" class="label fw-bold">Phụ kiện đi kèm</label>
+                <div class="input">
+                  <input
+                    id="product-gear-update"
+                    type="text"
+                    placeholder="Phụ kiện đi kèm..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="select_container">
+                <label for="product-brand-update" class="label fw-bold">Thương hiệu</label>
+                <div class="select">
+                  <select name="product-brand" id="product-brand-update" rules="required"></select>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="textarea_container">
+                <label for="product-desc-update" class="label fw-bold">Mô tả sản phẩm</label>
+                <div class="textarea">
+                  <textarea
+                    name=""
+                    id="product-desc-update"
+                    placeholder="Mô tả sản phẩm..."
+                  ></textarea>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-image-update" class="label fw-bold">Hình ảnh</label>
+                <div class="input">
+                  <input id="product-image-update" type="file" multiple accept="image/*" />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+                <div class="row product-preview-image"></div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+            <button type="button" class="btn btn-primary btn-update">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="createProductModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm mới</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="product-name-create" class="label fw-bold">Tên sản phẩm</label>
+                <div class="input">
+                  <input
+                    id="product-name-create"
+                    type="text"
+                    placeholder="tên sản phẩm..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-guarantee-create" class="label fw-bold">Bảo hành</label>
+                  <div class="input">
+                    <input
+                      id="product-guarantee-create"
+                      type="number"
+                      placeholder="bảo hành..."
+                      rules="required|positive"
+                    />
+                    Tháng
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-port-create" class="label fw-bold"
+                    >Số cổng lưu trữ tối đa</label
+                  >
+                  <div class="input">
+                    <input
+                      id="product-port-create"
+                      type="text"
+                      placeholder="Số cổng lưu trữ tối đa..."
+                      rules="required|positive"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-price-create" class="label fw-bold">Giá bán</label>
+                  <div class="input">
+                    <input
+                      id="product-price-create"
+                      type="number"
+                      placeholder="giá bán..."
+                      rules="required|positive"
+                    />
+                    VND
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-sale-create" class="label fw-bold">Giảm giá</label>
+                  <div class="input">
+                    <input
+                      id="product-sale-create"
+                      type="number"
+                      placeholder="giảm giá..."
+                      rules="positiveEqualZero"
+                    />
+                    %
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-cpu-gen-create" class="label fw-bold">Thế hệ CPU</label>
+                  <div class="input">
+                    <input
+                      id="product-cpu-gen-create"
+                      type="text"
+                      placeholder="thế hệ cpu..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-cpu-create" class="label fw-bold">CPU</label>
+                  <div class="input">
+                    <input
+                      id="product-cpu-create"
+                      type="text"
+                      placeholder="cpu..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-cpu-series-create" class="label fw-bold">Series CPU</label>
+                  <div class="input">
+                    <input
+                      id="product-cpu-series-create"
+                      type="text"
+                      placeholder="series cpu..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="input_container">
+                <label for="product-chip-create" class="label fw-bold">Chip đồ họa rời</label>
+                <div class="input">
+                  <input
+                    id="product-chip-create"
+                    type="text"
+                    placeholder="chip đồ họa rời..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-save-create" class="label fw-bold">Lưu trữ</label>
+                <div class="input">
+                  <input
+                    id="product-save-create"
+                    type="text"
+                    placeholder="Lưu trữ..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-screen-create" class="label fw-bold">Màn hình</label>
+                <div class="input">
+                  <input
+                    id="product-screen-create"
+                    type="text"
+                    placeholder="screen..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-ram-name-create" class="label fw-bold">Tên RAM</label>
+                  <div class="input">
+                    <input
+                      id="product-ram-name-create"
+                      type="text"
+                      placeholder="tên ram..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-ram-size-create" class="label fw-bold">Dung lượng RAM</label>
+                  <div class="input">
+                    <input
+                      id="product-ram-size-create"
+                      type="number"
+                      placeholder="dung lượng ram..."
+                      rules="required|positive"
+                    />
+                    GB
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="input_container">
+                <label for="product-slot-create" class="label fw-bold">Kiểu khe hỗ trợ</label>
+                <div class="input">
+                  <input
+                    id="product-slot-create"
+                    type="text"
+                    placeholder="Kiểu khe hỗ trợ..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-screen-port-create" class="label fw-bold">Cổng xuất hình</label>
+                <div class="input">
+                  <input
+                    id="product-screen-port-create"
+                    type="text"
+                    placeholder="Cổng xuất hình..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-connect-port-create" class="label fw-bold">Cổng kết nối</label>
+                <div class="input">
+                  <input
+                    id="product-connect-port-create"
+                    type="text"
+                    placeholder="Cổng kết nối..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-wireless-create" class="label fw-bold">Kết nối không dây</label>
+                <div class="input">
+                  <input
+                    id="product-wireless-create"
+                    type="text"
+                    placeholder="Kết nối không dây..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-keyboard-create" class="label fw-bold">Bàn phím</label>
+                <div class="input">
+                  <input
+                    id="product-keyboard-create"
+                    type="text"
+                    placeholder="Bàn phím..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-os-create" class="label fw-bold">Hệ điều hành</label>
+                <div class="input">
+                  <input
+                    id="product-os-create"
+                    type="text"
+                    placeholder="Hệ điều hành..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-size-create" class="label fw-bold">Kích thước</label>
+                  <div class="input">
+                    <input
+                      id="product-size-create"
+                      type="text"
+                      placeholder="Kích thước..."
+                      rules="required"
+                    />
+                    cm
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-pin-create" class="label fw-bold">Pin</label>
+                  <div class="input">
+                    <input
+                      id="product-pin-create"
+                      type="text"
+                      placeholder="Pin..."
+                      rules="required"
+                    />
+                    Wh
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-weight-create" class="label fw-bold">Khối lượng</label>
+                  <div class="input">
+                    <input
+                      id="product-weight-create"
+                      type="number"
+                      placeholder="Khối lượng..."
+                      rules="required|positive"
+                    />
+                    kg
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div class="input_container">
+                  <label for="product-series-laptop-create" class="label fw-bold">
+                    Series laptop
+                  </label>
+                  <div class="input">
+                    <input
+                      id="product-series-laptop-create"
+                      type="text"
+                      placeholder="Series laptop..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+                <div class="input_container">
+                  <label for="product-part-num-create" class="label fw-bold">part-number</label>
+                  <div class="input">
+                    <input
+                      id="product-part-num-create"
+                      type="text"
+                      placeholder="part-number..."
+                      rules="required"
+                    />
+                  </div>
+                  <span class="text-danger mb-1 error"></span>
+                </div>
+              </div>
+
+              <div class="input_container">
+                <label for="product-color-create" class="label fw-bold">Màu sắc</label>
+                <div class="input">
+                  <input
+                    id="product-color-create"
+                    type="text"
+                    placeholder="Màu sắc..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="d-flex justify-content-between gap-3 mb-3">
+                <div class="d-flex flex-column align-items-center gap-2">
+                  <label for="product-led-create" class="label fw-bold">Đèn led</label>
+                  <div class="checkbox-container">
+                    <input type="checkbox" class="checkbox-input" id="product-led-create" />
+                    <div class="checkbox-inner"><i class="fa-solid fa-check"></i></div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column align-items-center gap-2">
+                  <label for="product-touch-screen-create" class="label fw-bold"
+                    >Màn hình cảm ứng</label
+                  >
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      class="checkbox-input"
+                      id="product-touch-screen-create"
+                    />
+                    <div class="checkbox-inner"><i class="fa-solid fa-check"></i></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input_container">
+                <label for="product-gear-create" class="label fw-bold">Phụ kiện đi kèm</label>
+                <div class="input">
+                  <input
+                    id="product-gear-create"
+                    type="text"
+                    placeholder="Phụ kiện đi kèm..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="select_container">
+                <label for="product-brand-create" class="label fw-bold">Thương hiệu</label>
+                <div class="select">
+                  <select name="product-brand" id="product-brand-create" rules="required"></select>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="textarea_container">
+                <label for="product-desc-create" class="label fw-bold">Mô tả sản phẩm</label>
+                <div class="textarea">
+                  <textarea
+                    name=""
+                    id="product-desc-create"
+                    placeholder="Mô tả sản phẩm..."
+                  ></textarea>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+
+              <div class="input_container">
+                <label for="product-image-create" class="label fw-bold">Hình ảnh</label>
+                <div class="input">
+                  <input
+                    id="product-image-create"
+                    type="file"
+                    rules="required"
+                    multiple
+                    accept="image/*"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+                <div class="row product-preview-image"></div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+            <button type="button" class="btn btn-primary btn-create">Tạo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="createCustomerModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tạo khách hàng mới</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="username-customer-create" class="label">Tên đăng nhập</label>
+                <div class="input">
+                  <input
+                    id="username-customer-create"
+                    type="text"
+                    placeholder="Tên đăng nhập..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="password-customer" class="label">Mật khẩu</label>
+                <div class="input">
+                  <input
+                    id="password-customer"
+                    type="password"
+                    placeholder="Mật khẩu..."
+                    rules="required|max-20|min-4"
+                  />
+                  <span class="icon icon-password">
+                    <i class="fa-solid fa-eye hidden" data-value="eye"></i>
+                    <i class="fa-solid fa-eye-slash" data-value="eye-slash"></i>
+                  </span>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="fullname-customer-create" class="label">Họ tên</label>
+                <div class="input">
+                  <input
+                    id="fullname-customer-create"
+                    type="text"
+                    placeholder="Họ tên..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="birth-date-customer-create" class="label">Ngày sinh</label>
+                <div class="input">
+                  <input
+                    id="birth-date-customer-create"
+                    type="date"
+                    placeholder="Ngày sinh..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="phone-customer-create" class="label">Số điện thoại</label>
+                <div class="input">
+                  <input
+                    id="phone-customer-create"
+                    type="text"
+                    placeholder="Số điện thoại..."
+                    rules="required|phone"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="address-customer-create" class="label">Địa chỉ</label>
+                <div class="input">
+                  <input
+                    id="address-customer-create"
+                    type="text"
+                    placeholder="Địa chỉ..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="select_container">
+                <label for="gender-customer-create" class="label">Giới tính</label>
+                <div class="select">
+                  <select name="" id="gender-customer-create" rules="required">
+                    <option value="" hidden selected>Chọn giới tính</option>
+                    <option value="1">Nam</option>
+                    <option value="0">Nữ</option>
+                  </select>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-add">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="viewmoreCustomerModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Xem chi tiết</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="image_container">
+                <label class="label">Avatar</label>
+                <div class="image_img">
+                  <img
+                    src="https://lh3.googleusercontent.com/DGL9bv2_XyLQJ5N7_jnuXj7kJrPlYDyLnWsRUj24TaCZQoXf8JBqDPzLPp7lmLkIam7v5tUL47n9Z2ct5sOC=w500-rw"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div class="input_container">
+                <label for="username-customer-view" class="label">Tên đăng nhập</label>
+                <div class="input">
+                  <input
+                    id="username-customer-view"
+                    type="text"
+                    placeholder="Tên đăng nhập..."
+                    rules="required"
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="fullname-customer" class="label">Họ tên</label>
+                <div class="input">
+                  <input
+                    id="fullname-customer-view"
+                    type="text"
+                    placeholder="Họ tên..."
+                    rules="required"
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="birth-date-customer-view" class="label">Ngày sinh</label>
+                <div class="input">
+                  <input
+                    id="birth-date-customer-view"
+                    type="date"
+                    placeholder="Ngày sinh..."
+                    rules="required"
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="phone-customer-view" class="label">Số điện thoại</label>
+                <div class="input">
+                  <input
+                    id="phone-customer-view"
+                    type="text"
+                    placeholder="Số điện thoại..."
+                    rules="required"
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="address-customer-view" class="label">Địa chỉ</label>
+                <div class="input">
+                  <input
+                    id="address-customer-view"
+                    type="text"
+                    placeholder="Địa chỉ..."
+                    rules="required"
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="select_container">
+                <label for="gender-customer-view" class="label">Giới tính</label>
+                <div class="select">
+                  <select name="" id="gender-customer-view" rules="required" disabled>
+                    <option value="" hidden selected>Chọn giới tính</option>
+                    <option value="1">Nam</option>
+                    <option value="0">Nữ</option>
+                  </select>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="deleteCustomerModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xóa không?</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-yes">Có</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="createEmployeeModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tạo nhân viên mới</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="id-employee-create" class="label">Mã nhân viên</label>
+                <div class="input">
+                  <input
+                    id="id-employee-create"
+                    type="text"
+                    placeholder="Mã nhân viên..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="fullname-employee-create" class="label">Họ tên</label>
+                <div class="input">
+                  <input
+                    id="fullname-employee-create"
+                    type="text"
+                    placeholder="Họ tên..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="birth-date-employee-create" class="label">Ngày sinh</label>
+                <div class="input">
+                  <input
+                    id="birth-date-employee-create"
+                    type="date"
+                    placeholder="Ngày sinh..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="phone-employee-create" class="label">Số điện thoại</label>
+                <div class="input">
+                  <input
+                    id="phone-employee-create"
+                    type="text"
+                    placeholder="Số điện thoại..."
+                    rules="required|phone"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="select_container">
+                <label for="gender-employee-create" class="label">Giới tính</label>
+                <div class="select">
+                  <select name="" id="gender-employee-create" rules="required">
+                    <option value="" hidden selected>Chọn giới tính</option>
+                    <option value="1">Nam</option>
+                    <option value="0">Nữ</option>
+                  </select>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="salary-employee-create" class="label">Mức lương</label>
+                <div class="input">
+                  <input
+                    id="salary-employee-create"
+                    type="text"
+                    placeholder="Mức lương..."
+                    rules="required|positive"
+                  />
+                  VNĐ
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-add">Thêm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="updateEmployeeModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Sửa nhân viên</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="fullname-employee-update" class="label">Họ tên</label>
+                <div class="input">
+                  <input
+                    id="fullname-employee-update"
+                    type="text"
+                    placeholder="Họ tên..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="birth-date-employee-update" class="label">Ngày sinh</label>
+                <div class="input">
+                  <input
+                    id="birth-date-employee-update"
+                    type="date"
+                    placeholder="Ngày sinh..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="phone-employee-update" class="label">Số điện thoại</label>
+                <div class="input">
+                  <input
+                    id="phone-employee-update"
+                    type="text"
+                    placeholder="Số điện thoại..."
+                    rules="required|phone"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="select_container">
+                <label for="gender-employee-update" class="label">Giới tính</label>
+                <div class="select">
+                  <select name="" id="gender-employee-update" rules="required">
+                    <option value="" hidden selected>Chọn giới tính</option>
+                    <option value="1">Nam</option>
+                    <option value="0">Nữ</option>
+                  </select>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="salary-employee-update" class="label">Mức lương</label>
+                <div class="input">
+                  <input
+                    id="salary-employee-update"
+                    type="text"
+                    placeholder="Mức lương..."
+                    rules="required|positive"
+                  />
+                  VNĐ
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-save">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="deleteEmployeeModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xóa không?</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-yes">Có</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="createAuthGroupModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tạo nhóm quyền</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="auth_group_name-create" class="label">Tên nhóm quyền</label>
+                <div class="input">
+                  <input
+                    id="auth_group_name-create"
+                    type="text"
+                    placeholder="tên nhóm quyền..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="textarea_container mb-0">
+                <label for="auth_group_desc-create" class="label fw-bold">Mô tả</label>
+                <div class="textarea">
+                  <textarea name="" id="auth_group_desc-create" placeholder="Mô tả..."></textarea>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-add">Tạo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="viewAndUpdateAuthGroupModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Thay đổi nhóm quyền</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="auth_group_name-update" class="label">Tên nhóm quyền</label>
+                <div class="input">
+                  <input
+                    id="auth_group_name-update"
+                    type="text"
+                    placeholder="tên nhóm quyền..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="textarea_container">
+                <label for="auth_group_desc" class="label fw-bold">Mô tả</label>
+                <div class="textarea">
+                  <textarea name="" id="auth_group_desc-update" placeholder="Mô tả..."></textarea>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-update">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="viewAndUpdateDecentralizationModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Thay đổi hành động của nhóm quyền</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="decentralization-action">
+              <h3 class="decentralization-action_title">Thống kê</h3>
+              <div class="decentralization-action_list">
+                <div class="decentralization-action_item">
+                  <p>Tất cả</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-all-statistics"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-all-statistics">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xem</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-view-statistics"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-view-statistics">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="decentralization-action">
+              <h3 class="decentralization-action_title">Sản phẩm</h3>
+              <div class="decentralization-action_list">
+                <div class="decentralization-action_item">
+                  <p>Tất cả</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-all-product"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-all-product">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xem</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-read-product"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-read-product">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Thêm</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-create-product"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-create-product">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Sửa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-update-product"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-update-product">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xóa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-delete-product"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-delete-product">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="decentralization-action">
+              <h3 class="decentralization-action_title">Đơn hàng</h3>
+              <div class="decentralization-action_list">
+                <div class="decentralization-action_item">
+                  <p>Tất cả</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-all-order"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-all-order">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xem</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-read-order"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-read-order">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Sửa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-update-order"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-update-order">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xóa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-delete-order"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-delete-order">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="decentralization-action">
+              <h3 class="decentralization-action_title">Thương hiệu</h3>
+              <div class="decentralization-action_list">
+                <div class="decentralization-action_item">
+                  <p>Tất cả</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-all-brand"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-all-brand">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xem</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-read-brand"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-read-brand">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Thêm</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-create-brand"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-create-brand">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Sửa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-update-brand"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-update-brand">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xóa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-delete-brand"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-delete-brand">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="decentralization-action">
+              <h3 class="decentralization-action_title">Khách hàng</h3>
+              <div class="decentralization-action_list">
+                <div class="decentralization-action_item">
+                  <p>Tất cả</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-all-customer"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-all-customer">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xem</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-read-customer"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-read-customer">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Thêm</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-create-customer"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-create-customer">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Sửa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-update-customer"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-update-customer">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xóa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-delete-customer"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-delete-customer">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="decentralization-action">
+              <h3 class="decentralization-action_title">Nhân viên</h3>
+              <div class="decentralization-action_list">
+                <div class="decentralization-action_item">
+                  <p>Tất cả</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-all-employee"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-all-employee">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xem</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-read-employee"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-read-employee">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Thêm</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-create-employee"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-create-employee">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Sửa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-update-employee"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-update-employee">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xóa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-delete-employee"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-delete-employee">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="decentralization-action">
+              <h3 class="decentralization-action_title">Tài khoản</h3>
+              <div class="decentralization-action_list">
+                <div class="decentralization-action_item">
+                  <p>Tất cả</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-all-account"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-all-account">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xem</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-read-account"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-read-account">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Thêm</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-create-account"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-create-account">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Sửa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-update-account"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-update-account">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xóa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-delete-account"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-delete-account">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="decentralization-action">
+              <h3 class="decentralization-action_title">Nhóm quyền</h3>
+              <div class="decentralization-action_list">
+                <div class="decentralization-action_item">
+                  <p>Tất cả</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-all-auth-group"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-all-auth-group">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xem</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-read-auth-group"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-read-auth-group">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Thêm</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-create-auth-group"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-create-auth-group">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Sửa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-update-auth-group"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-update-auth-group">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xóa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-delete-auth-group"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-delete-auth-group">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="decentralization-action">
+              <h3 class="decentralization-action_title">Phân quyền</h3>
+              <div class="decentralization-action_list">
+                <div class="decentralization-action_item">
+                  <p>Tất cả</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-all-decentralization"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-all-decentralization">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xem</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-read-decentralization"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-read-decentralization">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Sửa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-update-decentralization"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-update-decentralization">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="decentralization-action">
+              <h3 class="decentralization-action_title">Phiếu nhập</h3>
+              <div class="decentralization-action_list">
+                <div class="decentralization-action_item">
+                  <p>Tất cả</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-all-import-order"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-all-import-order">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xem</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-read-import-order"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-read-import-order">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Thêm</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-create-import-order"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-create-import-order">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Sửa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-update-import-order"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-update-import-order">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xóa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-delete-import-order"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-delete-import-order">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="decentralization-action">
+              <h3 class="decentralization-action_title">Bảo hành</h3>
+              <div class="decentralization-action_list">
+                <div class="decentralization-action_item">
+                  <p>Tất cả</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-all-guarantee"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-all-guarantee">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xem</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-read-guarantee"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-read-guarantee">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Thêm</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-create-guarantee"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-create-guarantee">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+                <div class="decentralization-action_item">
+                  <p>Xóa</p>
+                  <div class="toggle">
+                    <input
+                      type="checkbox"
+                      id="toggle-delete-guarantee"
+                      name="outstanding-decentralization"
+                      hidden
+                    />
+                    <label for="toggle-delete-guarantee">
+                      <div class="toggle"></div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="noAuthorityModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Bạn không có quyền thực hiện hành động này
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="deleteAccountModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xóa không?</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-yes">Có</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="createAccountModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cấp tài khoản</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="select_container">
+                <label for="employee-account-create" class="label">Nhân viên</label>
+                <div class="select">
+                  <select name="" id="employee-account-create" rules="required"></select>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="select_container">
+                <label for="role-account-create" class="label">Nhóm quyền</label>
+                <div class="select">
+                  <select name="" id="role-account-create" rules="required"></select>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="password" class="label">Mật khẩu</label>
+                <div class="input">
+                  <input
+                    id="password"
+                    type="password"
+                    placeholder="Mật khẩu..."
+                    rules="required|max-20|min-4"
+                  />
+                  <span class="icon icon-password">
+                    <i class="fa-solid fa-eye hidden" data-value="eye"></i>
+                    <i class="fa-solid fa-eye-slash" data-value="eye-slash"></i>
+                  </span>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="comfirm-password" class="label">Xác nhận mật khẩu</label>
+                <div class="input">
+                  <input
+                    id="comfirm-password"
+                    type="password"
+                    placeholder="Mật khẩu..."
+                    rules="required|max-20|min-4|confirm"
+                  />
+                  <span class="icon icon-confirm-password">
+                    <i class="fa-solid fa-eye hidden" data-value="eye"></i>
+                    <i class="fa-solid fa-eye-slash" data-value="eye-slash"></i>
+                  </span>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-add">Tạo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="updateAccountModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa mật khẩu tài khoản</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="old-password" class="label">Mật khẩu cũ</label>
+                <div class="input">
+                  <input
+                    id="old-password"
+                    type="password"
+                    placeholder="Mật khẩu..."
+                    rules="required|max-20|min-4"
+                  />
+                  <span class="icon icon-old-password">
+                    <i class="fa-solid fa-eye hidden" data-value="eye"></i>
+                    <i class="fa-solid fa-eye-slash" data-value="eye-slash"></i>
+                  </span>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="password" class="label">Mật khẩu mới</label>
+                <div class="input">
+                  <input
+                    id="password"
+                    type="password"
+                    placeholder="Mật khẩu mới..."
+                    rules="required|max-20|min-4"
+                  />
+                  <span class="icon icon-password">
+                    <i class="fa-solid fa-eye hidden" data-value="eye"></i>
+                    <i class="fa-solid fa-eye-slash" data-value="eye-slash"></i>
+                  </span>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="comfirm-password" class="label">Xác nhận mật khẩu</label>
+                <div class="input">
+                  <input
+                    id="comfirm-password"
+                    type="password"
+                    placeholder="Mật khẩu..."
+                    rules="required|max-20|min-4|confirm"
+                  />
+                  <span class="icon icon-confirm-password">
+                    <i class="fa-solid fa-eye hidden" data-value="eye"></i>
+                    <i class="fa-solid fa-eye-slash" data-value="eye-slash"></i>
+                  </span>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-add">Thay đổi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="roleAccountModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Phân quyền nhân viên</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-role"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="createImportProductModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nhập hàng</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="profit-import-product" class="label fw-bold">Tỉ lệ lợi nhuận</label>
+                <div class="input">
+                  <input
+                    id="profit-import-product"
+                    type="number"
+                    placeholder="Tỉ lệ..."
+                    min="1"
+                    max="100"
+                    rules="required|positive|maxValue-100"
+                  />
+                  %
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="employee-import-product" class="label fw-bold">Mã nhân viên</label>
+                <div class="input">
+                  <input
+                    id="employee-import-product"
+                    type="text"
+                    placeholder="Nhân viên..."
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="select_container">
+                <label for="supplier-import-product" class="label fw-bold">Nhà cung cấp</label>
+                <div class="select">
+                  <select
+                    name="supplier-import-product"
+                    id="supplier-import-product"
+                    rules="required"
+                  ></select>
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="ordered-product">
+                <label class="label fw-bold">Các sản phẩm cần nhập</label>
+                <div class="product-list"></div>
+              </div>
+              <div class="order-total-price fw-bold">Tổng tiền: <span></span></div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+            <button type="button" class="btn btn-primary btn-add">Tạo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="deleteSupplierModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xóa không?</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-yes">Có</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="createSupplierModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tạo nhà cung cấp mới</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="name-supplier-create" class="label">Tên nhà cung cấp</label>
+                <div class="input">
+                  <input
+                    id="name-supplier-create"
+                    type="text"
+                    placeholder="Tên nhà cung cấp..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="phone-supplier-create" class="label">Số điện thoại</label>
+                <div class="input">
+                  <input
+                    id="phone-supplier-create"
+                    type="text"
+                    placeholder="Số điện thoại..."
+                    rules="required|phone"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="address-supplier-create" class="label">Địa chỉ</label>
+                <div class="input">
+                  <input
+                    id="address-supplier-create"
+                    type="text"
+                    placeholder="Địa chỉ..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-add">Thêm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="updateSupplierModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Xem và sửa</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="name-supplier-update" class="label">Tên nhà cung cấp</label>
+                <div class="input">
+                  <input
+                    id="name-supplier-update"
+                    type="text"
+                    placeholder="Tên nhà cung cấp..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="phone-supplier-update" class="label">Số điện thoại</label>
+                <div class="input">
+                  <input
+                    id="phone-supplier-update"
+                    type="text"
+                    placeholder="Số điện thoại..."
+                    rules="required|phone"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="address-supplier-update" class="label">Địa chỉ</label>
+                <div class="input">
+                  <input
+                    id="address-supplier-update"
+                    type="text"
+                    placeholder="Địa chỉ..."
+                    rules="required"
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-save">Lưu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="viewmoreGuaranteeModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Xem chi tiết</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="modal-form">
+              <div class="input_container">
+                <label for="guarantee-id" class="label fw-bold">Mã bảo hành</label>
+                <div class="input">
+                  <input
+                    id="guarantee-id"
+                    type="text"
+                    placeholder="Mã bảo hành..."
+                    rules="required"
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="detail-product-id" class="label fw-bold">Mã chi tiết sản phẩm</label>
+                <div class="input">
+                  <input
+                    id="detail-product-id"
+                    type="text"
+                    placeholder="Mã chi tiết sản phẩm..."
+                    rules="required"
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="input_container">
+                <label for="customer-id" class="label fw-bold">Mã khách hàng</label>
+                <div class="input">
+                  <input
+                    id="customer-id"
+                    type="text"
+                    placeholder="Mã khách hàng..."
+                    rules="required"
+                    disabled
+                  />
+                </div>
+                <span class="text-danger mb-1 error"></span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex flex-column create-time gap-2">
+                  <label class="label fw-bold">Ngày lập</label>
+                  <span></span>
+                </div>
+                <div class="d-flex flex-column expire-time gap-2">
+                  <label class="label fw-bold">Ngày hết hạn</label>
+                  <span></span>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="deleteGuaranteeModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xóa không?</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="button" class="btn btn-primary btn-yes">Có</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast"></div>
+
+    <!-- JQUERY -->
+    <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- Boostrap JS -->
+    <script src="js/vendor/popper.min.js"></script>
+    <script src="js/vendor/bootstrap.bundle.js"></script>
+
+    <!-- DATERANGEPICKER -->
+    <script type="text/javascript" src="js/vendor/moment.min.js"></script>
+    <script type="text/javascript" src="js/vendor/daterangepicker.min.js"></script>
+
+    <!-- APEXCHARTS -->
+    <script src="js/vendor/apexcharts.min.js"></script>
+
+    <!-- JS -->
+    <script type="module" src="/js/pages/manager.js"></script>
+    <script type="module" src="/js/utils/logout.js"></script>
+  </body>
+</html>
